@@ -1,0 +1,37 @@
+{
+    "errorToken": "Token invalide.",
+    "files": {
+        "alreadyExist": "Ce fichier existe déjà.",
+        "successful": "Le fichier a été créé avec succès.",
+        "errorAddFolder": "Le fichier n'a pas pu être créé.",
+        "successfulDelete": "Le fichier a bien été supprimé.",
+        "errorDelete": "Le fichier n'a pas pu être supprimé.",
+        "errorRename": "Le fichier n'a pas pu être renommer.",
+        "successfulRename": "Le fichier a été renommer avec succès."
+    },
+    "accueil": {
+        "successfulSave": "La page d'accueil a été correctement enregistré."
+    },
+    "degree": {
+        "alreadyExist": "Ce diplôme existe déjà",
+        "successful": "Le diplôme a été ajouté avec succès.",
+        "successfulDelete": "Le diplôme a bien été supprimé.",
+        "successfulEdit": "Le diplôme a bien été modifié."
+    },
+    "skills": {
+        "alreadyExist": "Cette compétence existe déjà",
+        "successful": "La compétence a été ajouté avec succès.",
+        "successfulDelete": "La compétence a bien été supprimé.",
+        "successfulEdit": "La compétence a bien été modifié."
+    },
+    "professionalExp": {
+        "successful": "L'expérience a été ajouté avec succès.",
+        "successfulDelete": "L'expérience a bien été supprimé.",
+        "successfulEdit": "L'expérience a bien été modifié."
+    },
+    "projects": {
+        "successful": "Le projet a été ajouté avec succès.",
+        "successfulDelete": "Le projet a bien été supprimé.",
+        "successfulEdit": "Le projet a bien été modifié."
+    }
+}

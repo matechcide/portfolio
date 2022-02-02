@@ -1,0 +1,15 @@
+@keyframes animatedBackground {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 0;
+    }
+}
+#animDiv {
+    background-image: url(/public/images/wave.png);
+    background-position: 0px 0px;
+    background-repeat: repeat-x;
+    animation: animatedBackground 60s alternate infinite;
+    background-size: cover;
+}

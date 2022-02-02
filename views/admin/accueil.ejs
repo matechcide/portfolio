@@ -1,0 +1,44 @@
+<link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.css">
+</link>
+
+<script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/codemirror.min.js">
+</script>
+
+<script type="text/javascript"
+  src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.52.2/mode/xml/xml.js">
+</script>
+
+<div class="w-full h-full flex flex-row overflow-hidden">
+    <div class="w-[50%] p-[10px] h-full flex flex-col justify-start items-center">
+        <div id="htmlInput" class="h-[80%] border-[2px] border-[gray] w-full"></div>
+        <div class="w-[80%] flex flex-row justify-between items-center">
+            <button class="bg-B border-[2px] border-A text-[white] rounded-[5px] mt-[15px] px-[5px] transition hover:scale-[110%]" onclick="if(!confirm('Souhaitez-vous vraiment sauvegarder ?')) return; toModule('setAccueil', { page: cm.getValue() })">Sauvegarder</button>
+           <button class="bg-C border-[2px] border-D text-[white] rounded-[5px] mt-[15px] px-[5px] transition hover:scale-[110%]" onclick="if(!confirm('Souhaitez-vous vraiment redémarer le site ?')) return; toModule('restart')">Relancer le serveur</button>
+        </div>
+        <label id=labelInfo></label>
+    </div>
+    <div class="w-[50%] p-[10px] h-full">
+        <div id="htmlRender" class="mt-[15px] w-full h-full flex flex-col justify-start items-center overflow-y-auto"></div>
+    </div>
+</div>
+
+<script>
+    let cm
+    toModule("getAccueil", {}, " ").then((rep) => {
+        cm = new CodeMirror(document.getElementById("htmlInput"), {
+            lineNumbers: true,
+            tabSize: 2,
+            value: rep.info,
+            htmlMode: true,
+            mode: "xml"
+        });
+        cm.setSize("100%", "100%");
+        cm.on("change", (obj, code) => {
+            document.getElementById("htmlRender").innerHTML = cm.getValue()
+            
+        })
+        document.getElementById("htmlRender").innerHTML = rep.info
+    })
+</script>
