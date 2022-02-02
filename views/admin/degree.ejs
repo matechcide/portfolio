@@ -1,0 +1,70 @@
+<form id="form" class="border-[gray] border-[2px] rounded-[10px] w-[60%] p-[10px] mt-[40px] flex flex-col justify-start items-center">
+    <div class="flex flex-row items-start justify-center w-full">
+        <div class="flex flex-col justify-start items-center w-1/2">
+            <label for="nom">Nom du diplôme</label>
+            <input class="border-[gray] border-[2px] rounded-[5px] px-[5px]" id="name" name="nom" type="text" required>
+
+            <label for="date">Année d'obtention</label>
+            <input class="border-[gray] border-[2px] rounded-[5px] px-[5px]" id="date" name="date" type="number" min="1900" max="2099" step="1" required/>
+
+            <label for="petitCommentaire">Précision du résultats</label>
+            <input class="border-[gray] border-[2px] rounded-[5px] px-[5px]" id="smallCom" name="petitCommentaire" type="text" required>
+            <button class="mt-[20px] py-[5px] px-[10px] bg-B border-A border-[2px] rounded-[5px] text-[white] transition hover:scale-110" type="submit">Créer</button>
+        </div>
+
+        <div class="flex flex-col justify-start items-center  w-1/2">
+            <label for="commentaire">Commentaire</label>
+            <textarea class="border-[gray] border-[2px] w-[90%] rounded-[5px] px-[5px]" name="commentaire" id="com" required ></textarea>
+        </div>
+    </div>
+</form>
+<label id="labelInfo"></label>
+
+<div id="component" class="w-[80%] border-[2px] border-[gray] rounded-[10px] p-[10px] animate-pulse mt-[20px]" title="listDegree"></div>
+
+<script>
+    document.getElementById("form").addEventListener("submit", (event) => { 
+        event.preventDefault()
+
+        seeInfo("En attente d'une réponse du serveur...")
+        toModule("postDegree", {
+            name: document.getElementById("name").value, 
+            date: document.getElementById("date").value, 
+            smallCom: document.getElementById("smallCom").value, 
+            com: document.getElementById("com").value,
+            visible: false
+        }).then((rep) => {
+            document.getElementById("name").value = ""
+            document.getElementById("date").value = ""
+            document.getElementById("smallCom").value = ""
+            document.getElementById("com").value = ""
+            listComponent.listDegree.refresh({ page: document.getElementById('page').innerText })
+            deleteInfo()
+        }).catch((rep) => {
+            deleteInfo()
+        })
+    })
+
+    const editDegree = (old, name, date, smallCom, com) => {
+        seeInfo("En attente d'une réponse du serveur...")
+        toModule("replaceDegree", {
+            oldName: old,
+            name: name, 
+            date: date, 
+            smallCom: smallCom,
+            com: com
+        }).then((rep) => {
+            listComponent.listDegree.refresh({ page: document.getElementById('page').innerText})
+            deleteInfo()
+        }).catch((rep) => {
+            deleteInfo()
+        })
+    }
+
+    function checkChange(pid){
+        toModule("visibleDegree", {
+            Pid: pid,
+            visible: document.getElementById("check/" + pid).checked
+        }, " ")
+    }
+</script>
