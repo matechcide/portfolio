@@ -905,10 +905,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   text-overflow: clip;
 }
 
-.break-all {
-  word-break: break-all;
-}
-
 .rounded-\[5px\] {
   border-radius: 5px;
 }

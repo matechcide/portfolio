@@ -24,7 +24,7 @@ module.exports = {
                         <% } %>
                     </h1>
                     <% if(project.git != ""){ %>
-                        <h1 class="mt-[10px]">Dispo sur : <button class="bg-B border-A border-[2px] rounded-[5px] text-[white] px-[5px] transition hover:scale-[110%]" href="<%= project.git %>">GIT</button></h1>
+                        <h1 class="mt-[10px]">Dispo sur : <button class="bg-B border-A border-[2px] rounded-[5px] text-[white] px-[5px] transition hover:scale-[110%]" onclick="window.location.href = '<%= project.git %>'">GIT</button></h1>
                     <% } %>
                 </div>
 
@@ -34,7 +34,7 @@ module.exports = {
                     </div>
                     <div class="flex flex-col justify-start items-start py-[10px] px-[20px]">
                         <h1 class="text-[25px]">Introduction:</h1>
-                        <h1 class="break-all"><%= project.intro %></h1>
+                        <h1 class=""><%= project.intro %></h1>
                     </div>
                     <div class="w-full flex flex-row justify-center items-center mt-[20px]">
                         <div class="w-[45%]">
@@ -57,7 +57,7 @@ module.exports = {
                     </div>
                     <div class="flex flex-col justify-start items-start py-[10px] px-[20px]">
                         <h1 class="text-[25px]">Avancer:</h1>
-                        <h1 class="break-all"><%= project.ccl %></h1>
+                        <h1 class=""><%= project.ccl %></h1>
                     </div>
                 </div>
             <% } %>

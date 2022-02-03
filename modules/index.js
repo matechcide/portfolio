@@ -5,7 +5,7 @@ module.exports = {
                 if(req.baseUrl[2]){
                     global.functions.mongodb.findOne("projects", { Pid: req.baseUrl[2] }).then((rep) => {
                         if(rep && rep.visible){
-                            res.render(req.baseUrl[0] + "/" + req.baseUrl[0], {modules: req.baseUrl[0], page: "loreProject", rep: rep, cookie: req.cookie, title: "admin", scripts: ["component"]})
+                            res.render(req.baseUrl[0] + "/" + req.baseUrl[0], {modules: req.baseUrl[0], page: "loreProject", rep: rep, cookie: req.cookie, title: rep.name, scripts: []})
                         }
                         else{
                             res.redirect("/" + req.baseUrl[0] + "/" + req.baseUrl[1])

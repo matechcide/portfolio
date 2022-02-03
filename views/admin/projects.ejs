@@ -90,7 +90,7 @@
             document.getElementById("name").value = ""
             document.getElementById("date").value = ""
             document.getElementById("logo").value = ""
-            listComponent.listProjects.refresh({ category: document.getElementById('category/2').value, page: document.getElementById('page').innerText })
+            listComponent.listProjects.refresh({ category: $('.chosen-select2').val(), page: document.getElementById('page').innerText })
             deleteInfo()
         }).catch((rep) => {
             deleteInfo()
