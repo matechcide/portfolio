@@ -42,23 +42,32 @@ module.exports = {
                         <h1 class="text-[25px]">Introduction:</h1>
                         <h1 class=""><%- project.intro %></h1>
                     </div>
-                    <div class="w-full flex flex-row justify-center items-center mt-[20px]">
-                        <div class="w-[45%]">
+                    <div class="w-full flex flex-row justify-around items-center mt-[20px]">
+                        <div class="w-[40%]">
                             <h1 class="text-[25px]">Définition de mon besoin:</h1>
-                            <ul class="list-inside">
+                            <ul class="list-outside">
                                 <% for(const c of project.cdc){ %>
                                     <li class="list-disc"><%= c %></li>
                                 <% } %>
                             </ul>
                         </div>
-                        <div class="w-[45%] aspect-video relative">
-                            <button class="absolute top-[30%] text-[50px] left-[-25px] transition hover:scale-[110%]" onclick="let shower = document.getElementById('slideImage'); let lc = shower.firstElementChild; shower.removeChild(shower.firstElementChild); shower.appendChild(lc)"><</button>
-                            <button class="absolute text-[50px] top-[30%] right-[-25px] transition hover:scale-[110%]" onclick="let shower = document.getElementById('slideImage'); let lc = shower.lastElementChild; shower.removeChild(shower.lastElementChild); shower.innerHTML = lc.outerHTML + shower.innerHTML">></button>
-                            <div id="slideImage" class="h-full overflow-hidden flex">
-                                <% for(const img of project.images){ %>
-                                    <img class="h-full ml-[50%] translate-x-[-50%] mr-[100%]" src="/public/files<%= img %>">
+                        <div class="w-full lg:w-[40%] aspect-video flex items-center justify-between mt-[20px] lg:mt-0">
+                            <button class="text-[50px] transition hover:scale-[110%]" onclick="let shower = document.getElementById('slideImage'); let lc = shower.firstElementChild; lc.classList.toggle('hidden'); shower.removeChild(shower.firstElementChild); shower.appendChild(lc); shower.firstElementChild.classList.toggle('hidden')">❮</button>
+                            <div id="slideImage" class="w-full aspect-video overflow-hidden flex items-center justify-center">
+                                <% if(project.images[0].indexOf("#") > -1){ %>
+                                    <img class="h-auto w-full" src="/public/files<%= project.images[0] %>">
+                                <% } else { %>
+                                    <img class="h-full" src="/public/files<%= project.images[0] %>">
+                                <% } %>
+                                <% for(let img = 1; project.images[img]; img++){ %>
+                                    <% if(project.images[img].indexOf("#") > -1){ %>
+                                        <img class="h-auto w-full hidden" src="/public/files<%= project.images[img] %>">
+                                    <% } else { %>
+                                        <img class="h-full hidden" src="/public/files<%= project.images[img] %>">
+                                    <% } %>
                                 <% } %>
                             </div>
+                            <button class="text-[50px] transition hover:scale-[110%]" onclick="let shower = document.getElementById('slideImage'); let lc = shower.lastElementChild; shower.removeChild(shower.lastElementChild); shower.firstElementChild.classList.toggle('hidden'); lc.classList.toggle('hidden'); shower.prepend(lc)">❯</button>
                         </div>
                     </div>
                     <div class="flex flex-col justify-start items-start py-[10px] px-[20px]">

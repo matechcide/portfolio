@@ -41,7 +41,7 @@
     <div class="w-[80%] flex flex-row justify-around items-center mt-[10px]">
         <div class="w-[50%] flex flex-col justify-start items-center">
             <label for="cdc">Cahier des charges</label>
-            <textarea id="cdc" class="w-[90%] border-[gray] border-[2px] rounded-[5px] px-[5px]"><%= rep.cdc %></textarea>
+            <textarea id="cdc" class="w-[90%] border-[gray] border-[2px] rounded-[5px] px-[5px]"><%= rep.cdc.join("|") %></textarea>
         </div>
         <div class="w-[50%] flex flex-col justify-start items-center">
             <label for="images">Images du projet</label>
@@ -105,7 +105,7 @@
             date: document.getElementById("date").value,
             logo: document.getElementById("logo").value,
             intro: document.getElementById("intro").value,
-            cdc: document.getElementById("cdc").value.split(","),
+            cdc: document.getElementById("cdc").value.split("|"),
             images: document.getElementById("images").value.split(","),
             ccl: document.getElementById("ccl").value,
             status: document.getElementById("status").value,
@@ -126,7 +126,7 @@
             date: document.getElementById("date").value,
             logo: document.getElementById("logo").value,
             intro: document.getElementById("intro").value,
-            cdc: document.getElementById("cdc").value.split(","),
+            cdc: document.getElementById("cdc").value.split("|"),
             images: document.getElementById("images").value.split(","),
             ccl: document.getElementById("ccl").value,
             status: document.getElementById("status").value,

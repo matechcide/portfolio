@@ -16,7 +16,7 @@ module.exports = {
                         <div class="flex flex-row justify-between items-center">
                             <img src="/public/images/folder.png" class="mr-[10px]">
                             <a class="cursor-pointer transition hover:scale-[110%]" onclick="document.getElementById('<%= folder %>').classList.toggle('hidden'); document.getElementById('<%= folder %>/input').classList.toggle('hidden'); document.getElementById('<%= folder %>/input').focus()">✏</a>
-                            <a class="cursor-pointer transition hover:scale-[110%]" onclick="toModule('deleteFile', {path : '<%= path %><%= folder %>/'}).then(() => {listComponent.filesManage.refresh({path : '<%= path %>'})}).catch(() => {})">🗑</a>
+                            <a class="cursor-pointer transition hover:scale-[110%]" onclick="if(!confirm('Souhaitez-vous vraiment supprimer <%= folder %> ?')) return; toModule('deleteFile', {path : '<%= path %><%= folder %>/'}).then(() => {listComponent.filesManage.refresh({path : '<%= path %>'})}).catch(() => {})">🗑</a>
                         </div>
                     </div>
                 <% } %>
@@ -25,13 +25,13 @@ module.exports = {
                         <a id="<%= file %>" href="/public/files<%= path %><%= file %>" class="text-[blue] underline"><%= file %></a>
                         <input type="text" id="<%= file %>/input" class="hidden" value="<%= file %>" onblur="if('<%= file %>' == document.getElementById('<%= file %>/input').value){ listComponent.filesManage.refresh({path : '<%= path %>'}); return;} toModule('renameFile', {path: '<%= path %>', old: '<%= file %>', new: document.getElementById('<%= file %>/input').value}).then(() => {listComponent.filesManage.refresh({path : '<%= path %>'})}).catch(() => {listComponent.filesManage.refresh({path : '<%= path %>'})})">
                         <div class="flex flex-row items-center">
-                            <% if(file.indexOf(".png") > -1 || file.indexOf(".jpg") > -1 ){ %>
+                            <% if(file.indexOf(".png") > -1 || file.indexOf(".jpg") > -1  || file.indexOf(".gif") > -1 ){ %>
                                 <img src="/public/images/image.png" class="mr-[10px]">
                             <% }else{ %>
                                 <img src="/public/images/file.png" class="mr-[10px]">
                             <% } %>
                             <a class="cursor-pointer transition hover:scale-[110%]" onclick="document.getElementById('<%= file %>').classList.toggle('hidden'); document.getElementById('<%= file %>/input').classList.toggle('hidden'); document.getElementById('<%= file %>/input').focus()">✏</a>
-                            <a class="cursor-pointer transition hover:scale-[110%]" onclick="toModule('deleteFile', {path : '<%= path %><%= file %>'}).then(() => {listComponent.filesManage.refresh({path : '<%= path %>'})}).catch(() => {})">🗑</a>
+                            <a class="cursor-pointer transition hover:scale-[110%]" onclick="if(!confirm('Souhaitez-vous vraiment supprimer <%= file %> ?')) return; toModule('deleteFile', {path : '<%= path %><%= file %>'}).then(() => {listComponent.filesManage.refresh({path : '<%= path %>'})}).catch(() => {})">🗑</a>
                         </div>
                     </div>
                 <% } %>
