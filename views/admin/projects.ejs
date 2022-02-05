@@ -57,7 +57,7 @@
     </div>
 </div>
 
-<div id="component" title="listProjects" class="hidden"></div>
+<div id="component" title="listProjects" class="animate-pulse pointer-events-none"></div>
 
 <script>
     $(".chosen-select").chosen({no_results_text: "Aucun résultat pour :"});
@@ -82,8 +82,9 @@
             cdc: [],
             images: [],
             ccl: "",
-            status: "",
+            status: "en cours",
             git: "",
+            test: "",
             visible: false
         }).then((rep) => {
             $('.chosen-select').val([]).trigger('chosen:updated')

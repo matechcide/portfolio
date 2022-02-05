@@ -55,11 +55,16 @@
     <div class="w-full flex flex-row justify-around mt-[10px]">
         <div class="flex flex-col">
             <label for="status">Statut du projet</label>
-            <select class="px-[5px] border-[2px] border-[gray] rounded-[5px]" id="status" value="<%= rep.status %>">
+            <select class="px-[5px] border-[2px] border-[gray] rounded-[5px]" id="status">
+                <option value="<%= rep.status %>" selected disabled hidden><%= rep.status %></option>
                 <option value="en cours">en cours</option>
                 <option value="en pause">en pause</option>
                 <option value="arrêter">arrêter</option>
             </select>
+        </div>
+        <div class="flex flex-col">
+            <label for="test">Lien test</label>
+            <input id="test" class="px-[5px] border-[2px] border-[gray] rounded-[5px]" type="url" value="<%= rep.test %>">
         </div>
         <div class="flex flex-col">
             <label for="git">Lien GIT</label>
@@ -74,7 +79,7 @@
 </div>
 
 <div id="preview" class="hidden w-[80%] flex-col items-center">
-    <div class="">
+    <div class="w-full p-[10px]">
         <div id="component" class="" title="previewProject"></div>
     </div>
     <div class="flex flex-row items-center justify-around w-[60%] my-[20px]">
@@ -104,7 +109,9 @@
             images: document.getElementById("images").value.split(","),
             ccl: document.getElementById("ccl").value,
             status: document.getElementById("status").value,
-            git: document.getElementById("git").value
+            git: document.getElementById("git").value,
+            test: document.getElementById("test").value, 
+            visible: false
         }).then((rep) => {
             deleteInfo()
         }).catch((rep) => {
@@ -123,7 +130,8 @@
             images: document.getElementById("images").value.split(","),
             ccl: document.getElementById("ccl").value,
             status: document.getElementById("status").value,
-            git: document.getElementById("git").value
+            git: document.getElementById("git").value,
+            test: document.getElementById("test").value
         })
     }
 </script>

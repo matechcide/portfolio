@@ -36,11 +36,12 @@ module.exports = {
                             <input class="border-[gray] border-[2px] rounded-[5px] px-[5px]" id="name/<%= degree.name %>" placeholder="nom" type="text" required value="<%= degree.name %>">
                             <input class="mt-[10px] border-[gray] border-[2px] rounded-[5px] px-[5px]" id="date/<%= degree.name %>" placeholder="anné" type="num" required value="<%= degree.date %>">
                             <input class="mt-[10px] border-[gray] border-[2px] rounded-[5px] px-[5px]" id="smallCom/<%= degree.name %>" placeholder="Précision du résultats" type="text" required value="<%= degree.smallCom %>">
+                            <input class="mt-[10px] border-[gray] border-[2px] rounded-[5px] px-[5px]" id="bulletin/<%= degree.name %>" placeholder="Bulletin" type="text" required value="<%= degree.bulletin %>">
                         </div>
                         <div class="flex flex-col items-start w-[45%]">
                             <textarea class="border-[gray] border-[2px] w-[90%] rounded-[5px] px-[5px]" placeholder="commentaire" id="com/<%= degree.name %>" required><%= degree.com %></textarea>
                             <div class="flex flex-row w-[90%] justify-around">
-                                <button class="mt-[10px] py-[5px] px-[10px] bg-B border-A border-[2px] rounded-[5px] text-[white] transition hover:scale-110" onclick="editDegree('<%= degree.name %>', document.getElementById('name/<%= degree.name %>').value, document.getElementById('date/<%= degree.name %>').value, document.getElementById('smallCom/<%= degree.name %>').value, document.getElementById('com/<%= degree.name %>').value)">modifier</button>
+                                <button class="mt-[10px] py-[5px] px-[10px] bg-B border-A border-[2px] rounded-[5px] text-[white] transition hover:scale-110" onclick="editDegree('<%= degree.name %>', document.getElementById('name/<%= degree.name %>').value, document.getElementById('date/<%= degree.name %>').value, document.getElementById('smallCom/<%= degree.name %>').value, document.getElementById('com/<%= degree.name %>').value,  document.getElementById('bulletin/<%= degree.name %>').value)">modifier</button>
                                 <button class="mt-[10px] py-[5px] px-[10px] bg-C border-D border-[2px] rounded-[5px] text-[white] transition hover:scale-110" onclick="listComponent.listDegree.refresh({page: <%= page %>})">annuler</button>
                             </div>
                         </div>

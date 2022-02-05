@@ -1,5 +1,5 @@
 <div class="w-full lg:min-h-full flex flex-col lg:flex-row">
-    <div class="w-full lg:w-[15%] flex lg:flex-col border-[gray] border-b-[2px] lg:border-b-0 lg:border-r-[2px] lg:h-full pb-[10px] lg:pr-[10px] pt-[10px] justify-between lg:justify-start">
+    <div class="w-full lg:w-[15%] flex flex-wrap items-start lg:flex-nowrap lg:flex-col border-[gray] border-b-[2px] lg:border-b-0 lg:border-r-[2px] lg:h-full pb-[10px] lg:pr-[10px] pt-[10px] justify-between lg:justify-start">
         <img class="aspect-auto w-[80px] lg:w-full" src="/public/files<%= rep.logo %>">
         <div class="flex flex-col mt-[10px] w-[40%] lg:w-full">
             <h1>Tag</h1>
@@ -11,19 +11,30 @@
                 <% } %>
             </div>
         </div>
-        <div class="mt-[10px] flex lg:flex-row flex-col items-center justify-center">
-            <h1 class="px-[5px]">Statut : </h1>
-            <% if(rep.status == "en cours"){ %>
-                <a class="bg-[green] text-[white] px-[5px]">en cours</a>
-            <% }else if(rep.status == "en pause"){ %>
-                <a class="bg-[gray] text-[white] px-[5px]">en pause</a>
-            <% }else{ %>
-                <a class="bg-[red] text-[white] px-[5px]">arrêter</a>
+        <div class="mt-[10px] flex flex-col items-center lg:items-start justify-start  lg:w-full">
+            <div class="flex lg:flex-row flex-col justify-center lg:justify-start items-start">
+                <h1 class="mr-[5px]">Statut :</h1>
+                <% if(rep.status == "en cours"){ %>
+                    <a class="bg-[green] text-[white] px-[5px]">en cours</a>
+                <% }else if(rep.status == "en pause"){ %>
+                    <a class="bg-[gray] text-[white] px-[5px]">en pause</a>
+                <% }else{ %>
+                    <a class="bg-[red] text-[white] px-[5px]">arrêter</a>
+                <% } %>
+            </div>
+            <% if(rep.git != ""){ %>
+                <div class="mt-[5px] flex lg:flex-row flex-col items-center justify-start">
+                    <h1 class="mr-[5px]">Dispo sur :</h1>
+                    <button class="bg-B border-A border-[2px] rounded-[5px] text-[white] px-[5px] transition hover:scale-[110%]" onclick="window.location.href = '<%= rep.git %>'">GIT</button>
+                </div>
+            <% } %>
+            <% if(rep.test != ""){ %>
+                <div class="mt-[5px] flex flex-col items-start justify-start w-[100px] lg:w-full">
+                    <h1 class="">Testez le sur :</h1>
+                    <a class="underline text-[blue] overflow-hidden text-ellipsis w-full" href="<%= rep.test %>"><%= rep.test %></a>
+                </div>
             <% } %>
         </div>
-        <% if(rep.git != ""){ %>
-            <h1 class="mt-[10px]">Dispo sur : <button class="bg-B border-A border-[2px] rounded-[5px] text-[white] px-[5px] transition hover:scale-[110%]" href="<%= rep.git %>">GIT</button></h1>
-        <% } %>
     </div>
 
     <div class="w-full lg:w-[85%] flex flex-col justify-start items-center">
@@ -32,7 +43,7 @@
         </div>
         <div class="flex flex-col justify-start items-start py-[10px] px-[20px]">
             <h1 class="text-[25px]">Introduction:</h1>
-            <h1 class=""><%= rep.intro %></h1>
+            <p class=""><%- rep.intro %></p>
         </div>
         <div class="w-full flex flex-col lg:flex-row justify-center items-center mt-[20px]">
             <div class="w-[45%]">
@@ -55,7 +66,7 @@
         </div>
         <div class="flex flex-col justify-start items-start py-[10px] px-[20px]">
             <h1 class="text-[25px]">Avancer:</h1>
-            <h1 class=""><%= rep.ccl %></h1>
+            <p class=""><%- rep.ccl %></p>
         </div>
     </div>
 </div>

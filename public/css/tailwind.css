@@ -575,6 +575,14 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 100px;
 }
 
+.mr-\[5px\] {
+  margin-right: 5px;
+}
+
+.mt-\[5px\] {
+  margin-top: 5px;
+}
+
 .ml-\[50\%\] {
   margin-left: 50%;
 }
@@ -609,10 +617,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .ml-\[20px\] {
   margin-left: 20px;
-}
-
-.mt-\[5px\] {
-  margin-top: 5px;
 }
 
 .mr-\[15px\] {
@@ -743,6 +747,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   width: 40%;
 }
 
+.w-\[100px\] {
+  width: 100px;
+}
+
 .w-\[45\%\] {
   width: 45%;
 }
@@ -757,10 +765,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .w-\[10\%\] {
   width: 10%;
-}
-
-.w-\[100px\] {
-  width: 100px;
 }
 
 .w-\[25\%\] {
@@ -901,6 +905,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   overflow-y: auto;
 }
 
+.text-ellipsis {
+  text-overflow: ellipsis;
+}
+
 .text-clip {
   text-overflow: clip;
 }
@@ -935,6 +943,11 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .border-\[1px\] {
   border-width: 1px;
+}
+
+.border-y-\[2px\] {
+  border-top-width: 2px;
+  border-bottom-width: 2px;
 }
 
 .border-b-\[2px\] {
@@ -1095,6 +1108,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   font-size: 20px;
 }
 
+.text-\[15px\] {
+  font-size: 15px;
+}
+
 .text-\[30px\] {
   font-size: 30px;
 }
@@ -1113,10 +1130,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .text-\[50px\] {
   font-size: 50px;
-}
-
-.text-\[15px\] {
-  font-size: 15px;
 }
 
 .text-\[55\%\] {
@@ -1301,6 +1314,14 @@ Ensure the default browser behavior of the `hidden` attribute.
 
   .lg\:flex-col {
     flex-direction: column;
+  }
+
+  .lg\:flex-nowrap {
+    flex-wrap: nowrap;
+  }
+
+  .lg\:items-start {
+    align-items: flex-start;
   }
 
   .lg\:justify-start {

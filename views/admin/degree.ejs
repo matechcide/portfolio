@@ -9,6 +9,10 @@
 
             <label for="petitCommentaire">Précision du résultats</label>
             <input class="border-[gray] border-[2px] rounded-[5px] px-[5px]" id="smallCom" name="petitCommentaire" type="text" required>
+
+            <label for="bulletin">Bulletin</label>
+            <input class="border-[gray] border-[2px] rounded-[5px] px-[5px]" id="bulletin" name="bulletin" type="text">
+
             <button class="mt-[20px] py-[5px] px-[10px] bg-B border-A border-[2px] rounded-[5px] text-[white] transition hover:scale-110" type="submit">Créer</button>
         </div>
 
@@ -20,7 +24,7 @@
 </form>
 <label id="labelInfo"></label>
 
-<div id="component" class="w-[80%] border-[2px] border-[gray] rounded-[10px] p-[10px] animate-pulse mt-[20px]" title="listDegree"></div>
+<div id="component" class="animate-pulse pointer-events-none" title="listDegree"></div>
 
 <script>
     document.getElementById("form").addEventListener("submit", (event) => { 
@@ -32,12 +36,14 @@
             date: document.getElementById("date").value, 
             smallCom: document.getElementById("smallCom").value, 
             com: document.getElementById("com").value,
+            bulletin: document.getElementById("bulletin").value.split(","),
             visible: false
         }).then((rep) => {
             document.getElementById("name").value = ""
             document.getElementById("date").value = ""
             document.getElementById("smallCom").value = ""
             document.getElementById("com").value = ""
+            document.getElementById("bulletin").value = ""
             listComponent.listDegree.refresh({ page: document.getElementById('page').innerText })
             deleteInfo()
         }).catch((rep) => {
@@ -45,14 +51,15 @@
         })
     })
 
-    const editDegree = (old, name, date, smallCom, com) => {
+    const editDegree = (old, name, date, smallCom, com, bulletin) => {
         seeInfo("En attente d'une réponse du serveur...")
         toModule("replaceDegree", {
             oldName: old,
             name: name, 
             date: date, 
             smallCom: smallCom,
-            com: com
+            com: com,
+            bulletin: bulletin.split(",")
         }).then((rep) => {
             listComponent.listDegree.refresh({ page: document.getElementById('page').innerText})
             deleteInfo()

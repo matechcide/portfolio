@@ -22,6 +22,14 @@ module.exports = {
                     </div>
                     <p class="text-[18px] mt-[10px] text-justify w-[70%]"><%= degree.com %></p>
                 </div>
+                <% if(degree.bulletin && degree.bulletin[0]){ %>
+                    <p class="mt-[10px] text-center">Bulletin en lien avec la filière :</p>
+                    <div class="border-y-[2px] border-A flex flex-col mt-[5px] p-[5px]">
+                    <% for(const bulletin of degree.bulletin){ %>
+                        <a class="underline text-[blue]" href="<%= bulletin.split('|')[1] %>"><%= bulletin.split('|')[0] %></a>
+                    <% } %>
+                    </div>
+                <% } %>
             <% } %>
             
         </div>
