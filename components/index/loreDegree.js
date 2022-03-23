@@ -4,7 +4,7 @@ module.exports = {
     html: (/*html*/`
         <div id="loreDegree" class="w-full flex flex-col justify-start items-center">
             <% if(!degree){ %>
-                <p class="text-center lg:w-[60%] lg:text-[20px]">Cette onglet détaillera les diplômes obtenus ou en cours d'acquisition et donne des informations supplémentaires sur le déroulement des années de ses diplômes. Il vous suffit juste de cliquer sur les cases dans la liste de diplôm.</p>
+                <p class="text-center lg:w-[60%] lg:text-[20px]">Cet onglet détaille les diplômes obtenus ou en cours d'obtention et donne des informations supplémentaires sur mes années d'études. Il vous suffit juste de cliquer sur les cases dans la liste des diplômes pour obtenir les détails.</p>
             <% } else { %>
                 <div class="lg:hidden w-full flex flex-col justify-start items-center">
                     <p class="text-[30px] text-center"><%= degree.name %></p>

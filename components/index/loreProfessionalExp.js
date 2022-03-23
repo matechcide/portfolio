@@ -4,7 +4,7 @@ module.exports = {
     html: (/*html*/`
         <div id="loreProfessionalExp" class="w-full flex flex-col justify-start items-center">
             <% if(!professionalExp){ %>
-                <p class="text-center lg:w-[60%] lg:text-[20px]">Cette page est dédiée aux activités professionnelles que j'ai pu exercer. N'hésitez pas à utiliser le filtre pour faire des recherches plus intéressante.</p>
+                <p class="text-center lg:w-[60%] lg:text-[20px]">Cette page est dédiée aux activités professionnelles que j'ai pu exercer. N'hésitez pas à utiliser le filtre pour faire des recherches ciblées.</p>
             <% } else { %>
                 <div class="lg:hidden w-full flex flex-col justify-start items-center">
                     <div class="flex">

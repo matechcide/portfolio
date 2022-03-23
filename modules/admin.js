@@ -341,7 +341,7 @@ module.exports = {
             return true
         }
         else if(req.method == "GET"){
-            res.redirect("/loginAdmin")
+            res.redirect("/loginAdmin?callback=" + req.originalUrl)
         }
         else{
             res.send({

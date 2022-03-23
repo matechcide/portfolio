@@ -5,7 +5,12 @@ class upLoad{
         this.#input.addEventListener("change", () => {
             this.#files = this.#input.files
             this.#id = Date.now()
-            this.start()
+            if(!this.#files[0]){
+                return
+            }
+            else{
+                this.start()
+            }
         })
     }
 
@@ -20,8 +25,8 @@ class upLoad{
                 await new Promise((resolve) => {
                     const interval = setInterval(async () => {
                         if(sendingFile < this.maxSendingFile){
-                            sendingFile++
                             clearInterval(interval)
+                            sendingFile++
                             resolve()
                         }
                     }, 500);
@@ -117,13 +122,13 @@ class upLoad{
             await new Promise((resolve) => {
                 const interval = setInterval(async () => {
                     if(numberCut == Math.ceil(byteFile/this.cutSize)){
+                        clearInterval(interval)
                         await this.#request({
                             status: "endUpLoad",
                             name: file.name,
                             info: this.info, 
                             id: id,
                         })
-                        clearInterval(interval)
                         resolve()
                     }
                     
@@ -133,6 +138,8 @@ class upLoad{
             this.#endFileUpLoad(file, numFile)
             if(numFileSend == this.#files.length){
                 this.status = false
+                this.#files = []
+                this.#input.value = []
                 this.#end()
             }
             })()

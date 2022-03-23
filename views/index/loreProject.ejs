@@ -55,7 +55,7 @@
                 </ul>
             </div>
             <div class="w-full lg:w-[40%] aspect-video flex items-center justify-between mt-[20px] lg:mt-0">
-                <button class="text-[50px] transition hover:scale-[110%]" onclick="let shower = document.getElementById('slideImage'); let lc = shower.firstElementChild; lc.classList.toggle('hidden'); shower.removeChild(shower.firstElementChild); shower.appendChild(lc); shower.firstElementChild.classList.toggle('hidden')">❮</button>
+                <button class="text-[50px] transition hover:scale-[110%]" onclick="let shower = document.getElementById('slideImage'); let lc = shower.lastElementChild; shower.removeChild(shower.lastElementChild); shower.firstElementChild.classList.toggle('hidden'); lc.classList.toggle('hidden'); shower.prepend(lc)">❮</button>
                 <div id="slideImage" class="w-full aspect-video overflow-hidden flex items-center justify-center">
                     <% if(rep.images[0].indexOf("#") > -1){ %>
                         <img class="h-auto w-full" src="/public/files<%= rep.images[0] %>">
@@ -70,7 +70,7 @@
                         <% } %>
                     <% } %>
                 </div>
-                <button class="text-[50px] transition hover:scale-[110%]" onclick="let shower = document.getElementById('slideImage'); let lc = shower.lastElementChild; shower.removeChild(shower.lastElementChild); shower.firstElementChild.classList.toggle('hidden'); lc.classList.toggle('hidden'); shower.prepend(lc)">❯</button>
+                <button class="text-[50px] transition hover:scale-[110%]" onclick="let shower = document.getElementById('slideImage'); let lc = shower.firstElementChild; lc.classList.toggle('hidden'); shower.removeChild(shower.firstElementChild); shower.appendChild(lc); shower.firstElementChild.classList.toggle('hidden')">❯</button>
             </div>
         </div>
         <div class="flex flex-col justify-start items-start py-[10px] px-[20px]">

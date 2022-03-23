@@ -36,7 +36,8 @@ module.exports = {
                         res.cookie("token", global.functions.token.make("admin", {}, 3600000))
                         res.send({
                             statut: "successful",
-                            info: ""
+                            info: "",
+                            callback: req.argUrl.callback
                         })
                     }
                     else{

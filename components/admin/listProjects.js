@@ -39,9 +39,9 @@ module.exports = {
                 </div>
             <% } %>
             <div class="flex flex-row w-[100px] items-center justify-between">
-                <div class="transition text-[30px] hover:scale-110 hover:text-C" onclick="listComponent.listProjects.refresh({page: <%= page %>-1, category: document.getElementById('category/2').value})">&larr;</div>
+                <div class="transition text-[30px] hover:scale-110 hover:text-C" onclick="listComponent.listProjects.refresh({page: <%= page %>-1, category: $('.chosen-select2').val()})">&larr;</div>
                 <div id="page"><%= page %></div>
-                <div class="transition text-[30px] hover:scale-110 hover:text-C" onclick="listComponent.listProjects.refresh({page: <%= page %>+1, category: document.getElementById('category/2').value})">&rarr;</div>
+                <div class="transition text-[30px] hover:scale-110 hover:text-C" onclick="listComponent.listProjects.refresh({page: <%= page %>+1, category: $('.chosen-select2').val()})">&rarr;</div>
             </div>
         </div>
     `),
